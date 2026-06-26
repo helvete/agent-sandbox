@@ -1,0 +1,4 @@
+*.sw[o|p]
+.env
+tags
+docker-compose.override.yml
