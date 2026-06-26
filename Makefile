@@ -1,20 +1,16 @@
 #!/usr/bin/make -f
 
-.PHONY: run
-run: date
-	docker-compose up -d
+.PHONY: runcli
+runcli: date
+	docker compose run -it --rm --remove-orphans sandbox sh
 
-.PHONY: build
-build: date
-	docker-compose up --build --force-recreate -d
+.PHONY: rebuild
+rebuild: date
+	docker compose build sandbox
 
 .PHONY: stop
 stop:
-	docker-compose down
-
-.PHONY: logs
-logs:
-	docker-compose logs -f
+	docker compose down
 
 .PHONY: date
 date:
