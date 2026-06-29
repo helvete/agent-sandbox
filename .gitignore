@@ -2,3 +2,4 @@
 .env
 tags
 docker-compose.override.yml
+.claude.json

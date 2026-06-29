@@ -8,6 +8,10 @@ runcli: date
 rebuild: date
 	docker compose build sandbox
 
+.PHONY: rootcli
+rootcli: date
+	docker compose run -itu root --rm --remove-orphans sandbox sh
+
 .PHONY: stop
 stop:
 	docker compose down

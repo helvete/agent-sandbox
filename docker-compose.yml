@@ -6,6 +6,8 @@ services:
     restart: "no"
     volumes:
       - ./target:/target
+      - ./.claude:/home/basic/.claude
+      - ./.claude.json:/home/basic/.claude.json
     deploy:
       resources:
         limits:

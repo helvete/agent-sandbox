@@ -11,7 +11,9 @@ RUN wget -O /etc/apk/keys/claude-code.rsa.pub ${ANTHROPIC_KEY_FILE} && \
     ripgrep \
     libgcc \
     libstdc++ && \
-    adduser -HDu 1000 basic
+    adduser -Du 1000 basic && \
+    mkdir /home/basic/.claude && \
+    chown 700 /home/basic/.claude
 
 USER basic
 
