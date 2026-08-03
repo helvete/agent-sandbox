@@ -15,6 +15,10 @@ RUN wget -O /etc/apk/keys/claude-code.rsa.pub ${ANTHROPIC_KEY_FILE} && \
     mkdir /home/basic/.claude && \
     chown 700 /home/basic/.claude
 
+RUN echo "export SHELL=/usr/bin/bash" >> /home/basic/.profile && \
+    echo -e "#!/bin/ash\nexec /bin/ash \"\$@\"" >> /usr/bin/bash && \
+    chmod a+x /usr/bin/bash
+
 USER basic
 
 WORKDIR /target
